@@ -31,7 +31,6 @@ int TrapWater(int Arr[], int nLen)
 	for (int i = 1; i < nLen - 1; i++)
 	{
 		int nCurrDiff = (TrapWater[i] - Arr[i]);
-
 		if (nCurrDiff > 0)
 		{
 			nTotalSum += nCurrDiff;
@@ -39,7 +38,6 @@ int TrapWater(int Arr[], int nLen)
 	}
 
 	delete[] TrapWater;
-
 	return nTotalSum;
 }
 
