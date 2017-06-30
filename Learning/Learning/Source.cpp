@@ -2,5 +2,6 @@
 
 int main()
 {
+	TrapWaterTest();
 	return 0;
 }
