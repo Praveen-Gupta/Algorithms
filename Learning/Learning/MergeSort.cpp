@@ -88,8 +88,8 @@ void merge(int pArr[], int nStart, int nMid, int nEnd)
 
 	std::cout << std::endl;
 
-	delete pRight;
-	delete pLeft;
+	delete[] pRight;
+	delete[] pLeft;
 }
 
 void mergeSort(int pArr[], int nStart, int nEnd)

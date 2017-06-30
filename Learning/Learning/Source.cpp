@@ -2,6 +2,6 @@
 
 int main()
 {
-	TrapWaterTest();
+	PascalTriangleWater();
 	return 0;
 }
