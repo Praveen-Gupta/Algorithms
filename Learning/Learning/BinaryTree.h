@@ -8,11 +8,11 @@ class Node
 private:
 	int nData;
 	int nWidth;
-	Node* pLeft;
+	Node* pFirst;
 	Node* pRight;
 	Node* pVertical;
 
-	Node(int nInData) : nData(nInData), nWidth(0), pLeft(nullptr), pRight(nullptr), pVertical(nullptr)
+	Node(int nInData) : nData(nInData), nWidth(0), pFirst(nullptr), pRight(nullptr), pVertical(nullptr)
 	{};
 	friend class BinaryTree;
 };
@@ -83,15 +83,15 @@ public:
 			currNode = traversalQueue.front();
 
 			AddVerticalNode(currNode);
-			if (currNode->pLeft)
+			if (currNode->pFirst)
 			{
-				(currNode->pLeft)->nWidth = currNode->nWidth - 1;
+				(currNode->pFirst)->nWidth = currNode->nWidth - 1;
 
-				if (m_nMinWidth > (currNode->pLeft)->nWidth)
+				if (m_nMinWidth > (currNode->pFirst)->nWidth)
 				{
-					m_nMinWidth = (currNode->pLeft)->nWidth;
+					m_nMinWidth = (currNode->pFirst)->nWidth;
 				}
-				traversalQueue.push(currNode->pLeft);
+				traversalQueue.push(currNode->pFirst);
 			}
 
 			if (currNode->pRight)
@@ -143,7 +143,7 @@ public:
 	{
 		if (node)
 		{
-			InOrder(node->pLeft);
+			InOrder(node->pFirst);
 			Visit(node);
 			InOrder(node->pRight);
 		}
@@ -172,13 +172,13 @@ public:
 		{
 			if (CurNode->nData > nData)
 			{
-				if ((CurNode->pLeft))
+				if ((CurNode->pFirst))
 				{
-					CurNode = CurNode->pLeft;
+					CurNode = CurNode->pFirst;
 				}
 				else
 				{
-					CurNode->pLeft = NewNode;
+					CurNode->pFirst = NewNode;
 					bAdded = true;
 				}
 			}
@@ -223,7 +223,7 @@ private:
 		if (node)
 		{
 			CreateVertical(node);
-			VerticalOrder(node->pLeft);
+			VerticalOrder(node->pFirst);
 			VerticalOrder(node->pRight);
 		}
 	}
@@ -242,7 +242,7 @@ private:
 		m_pRoot = new Node(nData);
 
 		m_pRoot->nData = nData;
-		m_pRoot->pLeft = nullptr;
+		m_pRoot->pFirst = nullptr;
 		m_pRoot->pRight = nullptr;
 	}
 };

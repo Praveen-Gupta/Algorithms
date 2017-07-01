@@ -1,7 +1,7 @@
 #include "Header.h"
 
-int main()
+int mainX()
 {
-	PascalTriangleWater();
+	//SumOf4Element();
 	return 0;
 }
