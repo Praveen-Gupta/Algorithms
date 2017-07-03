@@ -151,7 +151,7 @@ void FindSumOfFour(int pArr[], int nArraySize, int nDesiredSumOfFour)
 	cout << endl;
 }
 
-int main()
+int SumOf4Element()
 {
 	int nNoTestCases = 0;
 	cin >> nNoTestCases;

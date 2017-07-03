@@ -8,11 +8,11 @@ class Node
 private:
 	int nData;
 	int nWidth;
-	Node* pFirst;
+	Node* pLeft;
 	Node* pRight;
 	Node* pVertical;
 
-	Node(int nInData) : nData(nInData), nWidth(0), pFirst(nullptr), pRight(nullptr), pVertical(nullptr)
+	Node(int nInData) : nData(nInData), nWidth(0), pLeft(nullptr), pRight(nullptr), pVertical(nullptr)
 	{};
 	friend class BinaryTree;
 };
@@ -40,6 +40,21 @@ public:
 	virtual ~BinaryTree()
 	{
 		//Deelte Tree here
+	}
+
+	int height(Node* node)
+	{
+		if (!node)
+			return 0;
+		else
+		{
+			int LHeight = height(node->pLeft);
+			int RHeight = height(node->pRight);
+			if (LHeight > RHeight)
+				return LHeight + 1;
+			else
+				return RHeight + 1;
+		}
 	}
 
 	int AddVerticalNode(Node* currNode)
@@ -83,15 +98,15 @@ public:
 			currNode = traversalQueue.front();
 
 			AddVerticalNode(currNode);
-			if (currNode->pFirst)
+			if (currNode->pLeft)
 			{
-				(currNode->pFirst)->nWidth = currNode->nWidth - 1;
+				(currNode->pLeft)->nWidth = currNode->nWidth - 1;
 
-				if (m_nMinWidth > (currNode->pFirst)->nWidth)
+				if (m_nMinWidth > (currNode->pLeft)->nWidth)
 				{
-					m_nMinWidth = (currNode->pFirst)->nWidth;
+					m_nMinWidth = (currNode->pLeft)->nWidth;
 				}
-				traversalQueue.push(currNode->pFirst);
+				traversalQueue.push(currNode->pLeft);
 			}
 
 			if (currNode->pRight)
@@ -143,7 +158,7 @@ public:
 	{
 		if (node)
 		{
-			InOrder(node->pFirst);
+			InOrder(node->pLeft);
 			Visit(node);
 			InOrder(node->pRight);
 		}
@@ -172,13 +187,13 @@ public:
 		{
 			if (CurNode->nData > nData)
 			{
-				if ((CurNode->pFirst))
+				if ((CurNode->pLeft))
 				{
-					CurNode = CurNode->pFirst;
+					CurNode = CurNode->pLeft;
 				}
 				else
 				{
-					CurNode->pFirst = NewNode;
+					CurNode->pLeft = NewNode;
 					bAdded = true;
 				}
 			}
@@ -223,7 +238,7 @@ private:
 		if (node)
 		{
 			CreateVertical(node);
-			VerticalOrder(node->pFirst);
+			VerticalOrder(node->pLeft);
 			VerticalOrder(node->pRight);
 		}
 	}
@@ -242,7 +257,7 @@ private:
 		m_pRoot = new Node(nData);
 
 		m_pRoot->nData = nData;
-		m_pRoot->pFirst = nullptr;
+		m_pRoot->pLeft = nullptr;
 		m_pRoot->pRight = nullptr;
 	}
 };

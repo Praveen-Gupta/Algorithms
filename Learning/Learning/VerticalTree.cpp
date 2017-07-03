@@ -6,7 +6,7 @@
 #include "BinaryTree.h"
 using namespace std;
 
-int main4(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	
 	BinaryTree MyTree;
@@ -23,10 +23,13 @@ int main4(int argc, char* argv[])
 	MyTree.AddNode(150);
 	MyTree.AddNode(250);
 
-	MyTree.InOrder(MyTree.m_pRoot);
+	cout << MyTree.height(MyTree.m_pRoot) << endl;
+	//MyTree.InOrder(MyTree.m_pRoot);
 
-	MyTree.LevelOrder(MyTree.m_pRoot);
-	MyTree.PrintVerticalOrder(MyTree.m_pRoot);
+	//MyTree.LevelOrder(MyTree.m_pRoot);
+	
+	
+	//MyTree.PrintVerticalOrder(MyTree.m_pRoot);
 
 	return 0;
 
