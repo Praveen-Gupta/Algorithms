@@ -1,0 +1,13 @@
+
+*.ipch
+Learning/Learning/.vs/Learning/v15/.suo
+*.db
+*.opendb
+*.exe
+*.ilk
+*.pdb
+*.tlog
+*.obj
+*.idb
+*.pch
+*.log

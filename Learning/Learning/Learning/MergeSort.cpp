@@ -80,10 +80,10 @@ void merge(int pArr[], int nStart, int nMid, int nEnd)
 		k++;
 	}
 
-	for (int i = nStart; i < nEnd; i++)
+	for (int y = nStart; y < nEnd; y++)
 	{
 		std::cout << "After Merge: ";
-		std::cout << pArr[i] << " , "; 
+		std::cout << pArr[y] << " , "; 
 	}
 
 	std::cout << std::endl;

@@ -41,10 +41,9 @@ int main1()
 
 		int *pArr = (int*)malloc(nArrSize * sizeof(int));
 
-		for (unsigned int i = 0; i < nArrSize; i++)
+		for (unsigned int j = 0; j < nArrSize; j++)
 		{
-			int nTemp = 0;
-			scanf("%d", &pArr[i]);
+			scanf("%d", &pArr[j]);
 		}
 
 		scanf("%d", &k);

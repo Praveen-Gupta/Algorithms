@@ -57,7 +57,6 @@ void FindSumOfFour(int pArr[], int nArraySize, int nDesiredSumOfFour)
 {
 	vector <vector<int>> vPrintVect;
 	int nSumFirstTwo = pArr[0] + pArr[1];
-	int nSumLastTwo = pArr[nArraySize - 2] + pArr[nArraySize - 1];
 
 	nDesiredSumOfFour -= (2 * nSumFirstTwo);
 
